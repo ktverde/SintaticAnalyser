@@ -1,6 +1,4 @@
 import app.Menu;
-import lexic.LexicUser;
-import sintatic.SintaticAnalyser;
 
 public class Main
 {

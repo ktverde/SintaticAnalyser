@@ -1,8 +1,8 @@
 package app;
 
 import exceptions.LexicException;
-import exceptions.SintaticException;
-import sintatic.SintaticAnalyser;
+import exceptions.SyntaxException;
+import syntax.SyntaxAnalyser;
 
 import java.io.File;
 import java.util.Scanner;
@@ -36,13 +36,13 @@ public class Menu
                     if(op.equals("0")) break;
                     try{
 
-                        SintaticAnalyser sintaticAnalyser = new SintaticAnalyser(op);
-                        if (sintaticAnalyser.analyse())
+                        SyntaxAnalyser syntaxAnalyser = new SyntaxAnalyser(op);
+                        if (syntaxAnalyser.analyse())
                             System.out.println("Arquivo " + op + " analisado com sucesso! \nNenhum erro sintático e/ou léxico encontrado!");
                         else
-                            throw new SintaticException("Erro de sintaxe na mensagem!");
+                            throw new SyntaxException("Erro de sintaxe na mensagem!");
 
-                    }catch (SintaticException | LexicException e){
+                    }catch (SyntaxException | LexicException e){
                         System.out.println(e.getMessage());
                     }
                 }
@@ -52,13 +52,13 @@ public class Menu
                     op = teclado.nextLine();
                     try{
 
-                        SintaticAnalyser sintaticAnalyser = new SintaticAnalyser(new StringBuilder(op));
-                        if (sintaticAnalyser.analyse())
+                        SyntaxAnalyser syntaxAnalyser = new SyntaxAnalyser(new StringBuilder(op));
+                        if (syntaxAnalyser.analyse())
                             System.out.println("Mensagem " + op + " analisada com sucesso! \nNenhum erro sintático e/ou léxico encontrado!");
                         else
-                            throw new SintaticException("Erro de sintaxe na mensagem!");
+                            throw new SyntaxException("Erro de sintaxe na mensagem!");
 
-                    }catch (SintaticException | LexicException e){
+                    }catch (SyntaxException | LexicException e){
                         System.out.println(e.getMessage());
                     }
                 }

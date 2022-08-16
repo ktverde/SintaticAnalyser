@@ -1,6 +1,5 @@
-package sintatic;
+package syntax;
 
-import exceptions.LexicException;
 import lexic.LexicUser;
 import models.Constants.Tokens;
 
@@ -8,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class SintaticAnalyser
+public class SyntaxAnalyser
 {
     List<Tokens> tokensList = new ArrayList<>();
 
-    public SintaticAnalyser(String fileName){
+    public SyntaxAnalyser(String fileName){
 
         tokensList = new LexicUser().analyseFile(fileName);
     }
-    public SintaticAnalyser(StringBuilder string){
+    public SyntaxAnalyser(StringBuilder string){
 
         tokensList = new LexicUser().analyseString(string);
     }

@@ -1,23 +1,14 @@
 package lexic;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadLexicFile extends OpenLexicFile {
 
-    @Getter
     private char nextChar;
-
-    @Setter
     private StringBuilder entry = new StringBuilder();
 
     private int pos = 0;
-
-    @Setter
-    @Getter
     private Tokens reconToken;
 
     public ReadLexicFile(){ }
@@ -57,5 +48,19 @@ public class ReadLexicFile extends OpenLexicFile {
         return token.indexOf(this.nextChar) != -1;
     }
 
+    public char getNextChar() {
+        return nextChar;
+    }
 
+    public Tokens getReconToken() {
+        return reconToken;
+    }
+
+    public void setEntry(StringBuilder entry) {
+        this.entry = entry;
+    }
+
+    public void setReconToken(Tokens reconToken) {
+        this.reconToken = reconToken;
+    }
 }
